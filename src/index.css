@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-green: #00FF00;
+  --color-slate-grey: #1A1A1A;
+  --color-pitch-black: #000000;
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-pitch-black text-white font-body antialiased;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+      linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-black tracking-tight uppercase;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-neon-green text-black px-8 py-3 rounded-none font-bold transition-all hover:shadow-[0_0_20px_rgba(0,255,0,0.6)] active:scale-95 disabled:opacity-50 uppercase tracking-widest text-xs;
+  }
+  .btn-secondary {
+    @apply border border-neon-green text-neon-green px-8 py-3 rounded-none font-bold transition-all hover:bg-neon-green hover:text-black active:scale-95 uppercase tracking-widest text-xs;
+  }
+  .tech-card {
+    @apply bg-slate-grey border border-white/5 hover:border-neon-green/50 transition-all duration-300 relative overflow-hidden;
+  }
+  .neon-glow {
+    @apply shadow-[0_0_15px_rgba(0,255,0,0.3)];
+  }
+  .neon-border {
+    @apply border border-neon-green/30 focus-within:border-neon-green transition-colors;
+  }
+  .bento-item {
+    @apply bg-slate-grey border border-white/5 hover:border-neon-green/30 transition-all duration-500 overflow-hidden relative;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-pitch-black;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-neon-green/20 hover:bg-neon-green/40 transition-colors;
+}
